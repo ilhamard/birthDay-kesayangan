@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun, Sayangku Cantikku! 💖✨</title>
+  <meta name="description" content="Website romantis ucapan ulang tahun spesial untuk pacar tercinta.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Heart Canvas Background -->
+  <canvas id="heartCanvas"></canvas>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+
+  <!-- Audio Element (Jamrud - Selamat Ulang Tahun) -->
+  <audio id="bgMusic" loop preload="auto"></audio>
+
+  <!-- Main Container -->
+  <div class="app-container">
+
+    <!-- =================================================================
+         SCREEN 1: HERO & SURPRISE BUTTON
+         ================================================================= -->
+    <section id="heroSection" class="hero-section">
+      <div class="pulse-heart-icon">💖</div>
+      <p id="heroSubtitle" class="hero-subtitle">Ada kejutan manis untuk...</p>
+      <h1 class="hero-title">
+        <span id="heroTitle">Selamat Ulang Tahun,</span>
+        <span id="heroName" class="hero-name">Sayangku Cantikku</span>
+      </h1>
+      <p class="hero-desc">
+        Hari ini adalah hari paling istimewa karena dunia dikaruniai senyuman terindahmu.
+      </p>
+      <button id="surpriseBtn" class="surprise-btn">
+        <span id="btnText">💖 Klik Di Sini, Sayang! 💖</span>
+      </button>
+    </section>
+
+    <!-- =================================================================
+         SCREEN 2: MAIN CONTENT (REVEALED ON BUTTON CLICK)
+         ================================================================= -->
+    <main id="mainContent" class="main-content">
+      
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="section-badge">✨ Special Birthday Gift ✨</span>
+        <h2 class="section-title">Surat Cinta Untukmu 💌</h2>
+      </div>
+
+      <!-- Love Letter Card -->
+      <article class="love-letter-card">
+        <div class="letter-header">
+          <div class="letter-to" id="letterTo">Untuk Sayangku Cantikku, ❤️</div>
+        </div>
+        <div class="letter-body" id="letterBody">
+          <!-- Text will be typed smoothly here -->
+          <span class="typing-cursor"></span>
+        </div>
+        <div class="letter-quote" id="letterQuote">
+          "Dari sejuta bintang di langit, hanya kamu yang paling bersinar di hatiku."
+        </div>
+      </article>
+
+      <!-- Time Counter Section -->
+      <section class="counter-card">
+        <div class="counter-title" id="counterLabel">Hari Indah Yang Telah Kita Lewati Bersama 💕</div>
+        <div class="counter-grid">
+          <div class="counter-box">
+            <span id="daysCount" class="counter-num">0</span>
+            <span class="counter-unit">Hari</span>
+          </div>
+          <div class="counter-box">
+            <span id="hoursCount" class="counter-num">0</span>
+            <span class="counter-unit">Jam</span>
+          </div>
+          <div class="counter-box">
+            <span id="minsCount" class="counter-num">0</span>
+            <span class="counter-unit">Menit</span>
+          </div>
+          <div class="counter-box">
+            <span id="secsCount" class="counter-num">0</span>
+            <span class="counter-unit">Detik</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Photo Polaroid Gallery -->
+      <div class="section-header">
+        <span class="section-badge">📸 Memory Gallery</span>
+        <h2 class="section-title">Kenangan Indah Bersamamu</h2>
+      </div>
+      <section class="gallery-grid" id="galleryGrid">
+        <!-- Photo cards rendered dynamically from config.js -->
+      </section>
+
+      <!-- Wishes Cards -->
+      <div class="section-header">
+        <span class="section-badge">🌟 My Wishes For You</span>
+        <h2 class="section-title">Doa & Harapan Tulus</h2>
+      </div>
+      <section class="wishes-grid" id="wishesGrid">
+        <!-- Wishes rendered dynamically from config.js -->
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer-text">
+        Dibuat dengan <span>❤️</span> khusus untuk <strong><span class="target-name">Sayangku Cantikku</span></strong>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- =================================================================
+       FLOATING AUDIO PLAYER WIDGET (JAMRUD - SELAMAT ULANG TAHUN)
+       ================================================================= -->
+  <div class="audio-player-container" id="audioWidget">
+    <div class="vinyl-record" id="vinylRecord">
+      <div class="vinyl-center"></div>
+    </div>
+    <div class="audio-info">
+      <div class="audio-title" id="musicTitle">Jamrud - Selamat Ulang Tahun 🎶</div>
+      <div class="audio-status" id="musicStatus">Klik tombol untuk putar lagu</div>
+    </div>
+    <button class="audio-btn" id="playPauseBtn" title="Putar/Hentikan Musik">▶</button>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
