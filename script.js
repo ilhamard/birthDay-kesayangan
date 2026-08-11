@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 5. INITIALIZE TIME COUNTER
   initCounter();
+
+  // 6. INITIALIZE RANDOM GIFT SURPRISE
+  initGiftSurprise();
 });
 
 /* =================================================================
@@ -62,6 +65,19 @@ function initFromConfig() {
         <span class="wish-icon">${wish.icon}</span>
         <div class="wish-title">${wish.title}</div>
         <div class="wish-text">${wish.text}</div>
+      </div>
+    `).join('');
+  }
+
+  // Render Gift Showcase Grid
+  const giftGrid = document.getElementById('giftGrid');
+  if (giftGrid && CONFIG.gifts) {
+    giftGrid.innerHTML = CONFIG.gifts.map(gift => `
+      <div class="gift-card" id="gift-card-${gift.id}">
+        <span class="gift-card-badge">${gift.badge || 'Gift'}</span>
+        <div class="gift-card-icon">${gift.icon}</div>
+        <div class="gift-card-name">${gift.name}</div>
+        <div class="gift-card-desc">${gift.desc}</div>
       </div>
     `).join('');
   }
@@ -365,4 +381,114 @@ function animate() {
   }
 
   requestAnimationFrame(animate);
+}
+
+/* =================================================================
+   7. RANDOM GIFT SURPRISE & MODAL CONTROLLER
+   ================================================================= */
+let isDrawingGift = false;
+
+function initGiftSurprise() {
+  const drawGiftBtn = document.getElementById('drawGiftBtn');
+  const drawBtnText = document.getElementById('drawBtnText');
+  const giftBoxIcon = document.getElementById('giftBoxIcon');
+  const giftBoxTitle = document.getElementById('giftBoxTitle');
+  const giftModalOverlay = document.getElementById('giftModalOverlay');
+  const closeGiftModal = document.getElementById('closeGiftModal');
+  const reDrawBtn = document.getElementById('reDrawBtn');
+  const claimWaBtn = document.getElementById('claimWaBtn');
+  const modalGiftIcon = document.getElementById('modalGiftIcon');
+  const modalGiftName = document.getElementById('modalGiftName');
+  const modalGiftDesc = document.getElementById('modalGiftDesc');
+
+  if (!drawGiftBtn || typeof CONFIG === 'undefined' || !CONFIG.gifts || CONFIG.gifts.length === 0) return;
+
+  const gifts = CONFIG.gifts;
+
+  function drawRandomGift() {
+    if (isDrawingGift) return;
+    isDrawingGift = true;
+    drawGiftBtn.disabled = true;
+
+    let shuffleCount = 0;
+    const maxShuffles = 18;
+    const intervalTime = 90;
+
+    giftBoxIcon.classList.add('shuffling');
+
+    const shuffleInterval = setInterval(() => {
+      const randomTemp = gifts[Math.floor(Math.random() * gifts.length)];
+      giftBoxIcon.innerText = randomTemp.icon;
+      giftBoxTitle.innerText = `Mengacak... ${randomTemp.name}`;
+      drawBtnText.innerText = "🎲 Sedang Mengacak Hadiah...";
+
+      // Highlight temp card in showcase
+      document.querySelectorAll('.gift-card').forEach(c => c.classList.remove('highlighted'));
+      const activeCard = document.getElementById(`gift-card-${randomTemp.id}`);
+      if (activeCard) activeCard.classList.add('highlighted');
+
+      shuffleCount++;
+      if (shuffleCount >= maxShuffles) {
+        clearInterval(shuffleInterval);
+
+        // Determine final gift
+        const finalGift = gifts[Math.floor(Math.random() * gifts.length)];
+        
+        giftBoxIcon.innerText = finalGift.icon;
+        giftBoxTitle.innerText = `SELAMAT! 🎉 Kamu dapat ${finalGift.name}`;
+        drawBtnText.innerText = "🎁 Buka Kotak Hadiah! 🎁";
+        giftBoxIcon.classList.remove('shuffling');
+
+        // Highlight winning card
+        document.querySelectorAll('.gift-card').forEach(c => c.classList.remove('highlighted'));
+        const winningCard = document.getElementById(`gift-card-${finalGift.id}`);
+        if (winningCard) winningCard.classList.add('highlighted');
+
+        // Confetti Heart Explosion
+        const rect = drawGiftBtn.getBoundingClientRect();
+        triggerHeartExplosion(rect.left + rect.width / 2, rect.top + rect.height / 2, 40);
+
+        // Open Modal after short delay
+        setTimeout(() => {
+          showGiftModal(finalGift);
+          isDrawingGift = false;
+          drawGiftBtn.disabled = false;
+        }, 600);
+      }
+    }, intervalTime);
+  }
+
+  function showGiftModal(gift) {
+    if (!giftModalOverlay) return;
+    modalGiftIcon.innerText = gift.icon;
+    modalGiftName.innerText = gift.name;
+    modalGiftDesc.innerText = gift.desc;
+
+    // Prepare WhatsApp claim link
+    const waText = encodeURIComponent(`Halo Sayang! ❤️ Aku dapet hadiah ulang tahun *${gift.name}* (${gift.icon}) dari website spesialmu! Makasih banyak yaa sayang! 💖✨`);
+    claimWaBtn.href = `https://api.whatsapp.com/send?text=${waText}`;
+
+    giftModalOverlay.classList.add('active');
+
+    // Extra burst of hearts for celebration
+    triggerHeartExplosion(window.innerWidth / 2, window.innerHeight / 2, 35);
+  }
+
+  function hideModal() {
+    if (giftModalOverlay) giftModalOverlay.classList.remove('active');
+  }
+
+  drawGiftBtn.addEventListener('click', drawRandomGift);
+  if (closeGiftModal) closeGiftModal.addEventListener('click', hideModal);
+  if (reDrawBtn) reDrawBtn.addEventListener('click', () => {
+    hideModal();
+    setTimeout(drawRandomGift, 300);
+  });
+
+  // Close modal on backdrop click
+  if (giftModalOverlay) {
+    giftModalOverlay.addEventListener('click', (e) => {
+      if (e.target === giftModalOverlay) hideModal();
+    });
+  }
 }

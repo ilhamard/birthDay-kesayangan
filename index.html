@@ -106,6 +106,34 @@
         <!-- Wishes rendered dynamically from config.js -->
       </section>
 
+      <!-- Random Gift Section -->
+      <div class="section-header">
+        <span class="section-badge">🎁 Birthday Surprise</span>
+        <h2 class="section-title">Klaim Hadiah Ulang Tahunmu! ✨</h2>
+      </div>
+
+      <section class="gift-section" id="giftSection">
+        <!-- Main Interactive Reel/Box -->
+        <div class="gift-box-card">
+          <div class="gift-box-icon" id="giftBoxIcon">🎁</div>
+          <h3 class="gift-box-title" id="giftBoxTitle">Kotak Kejutan Spesial Ulang Tahun</h3>
+          <p class="gift-box-desc">
+            Klik tombol di bawah ini untuk mengacak & membuka hadiah acak dari pacarmu! 💖
+          </p>
+          <button id="drawGiftBtn" class="draw-gift-btn">
+            <span id="drawBtnText">🎁 Buka Kotak Hadiah! 🎁</span>
+          </button>
+        </div>
+
+        <!-- Gift List Showcase -->
+        <div class="gift-showcase">
+          <h3 class="showcase-title">✨ Daftar Pilihan Hadiah Yang Bisa Kamu Dapatkan:</h3>
+          <div class="gift-grid" id="giftGrid">
+            <!-- Gift cards rendered dynamically from config.js -->
+          </div>
+        </div>
+      </section>
+
       <!-- Footer -->
       <footer class="footer-text">
         Dibuat dengan <span>❤️</span> khusus untuk <strong><span class="target-name">Sayangku Cantikku</span></strong>
@@ -115,9 +143,26 @@
 
   </div>
 
-  <!-- =================================================================
-       FLOATING AUDIO PLAYER WIDGET (JAMRUD - SELAMAT ULANG TAHUN)
-       ================================================================= -->
+  <!-- Hadiah Result Modal Popup -->
+  <div class="gift-modal-overlay" id="giftModalOverlay">
+    <div class="gift-modal-card">
+      <button class="modal-close-btn" id="closeGiftModal">&times;</button>
+      <div class="modal-badge">🎉 SELAMAT SAYANG! 🎉</div>
+      <div class="modal-gift-icon" id="modalGiftIcon">🎁</div>
+      <h3 class="modal-gift-name" id="modalGiftName">Hadiah Ulang Tahun</h3>
+      <p class="modal-gift-desc" id="modalGiftDesc">Deskripsi hadiah</p>
+      <div class="modal-actions">
+        <a id="claimWaBtn" href="#" target="_blank" class="claim-wa-btn">
+          <span>💬 Klaim ke Pacarmu (WhatsApp)</span>
+        </a>
+        <button id="reDrawBtn" class="redraw-btn">
+          🔄 Acak Lagi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING AUDIO PLAYER WIDGET (JAMRUD - SELAMAT ULANG TAHUN) -->
   <div class="audio-player-container" id="audioWidget">
     <div class="vinyl-record" id="vinylRecord">
       <div class="vinyl-center"></div>

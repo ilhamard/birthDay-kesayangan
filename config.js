@@ -40,7 +40,7 @@ const CONFIG = {
     {
       url: "assets/images/photo1.jpg",
       caption: "Senyuman Manismu 🌅",
-      desc: "Momen indah saat kita menikmati senja bersama."
+      desc: "Momen indah saat kita Kencan pertama kali di Jogja."
     },
     {
       url: "assets/images/photo2.jpg",
@@ -60,5 +60,51 @@ const CONFIG = {
     { icon: "💖", title: "Cinta Tak Terbatas", text: "Semoga rasa cinta kita makin tumbuh kuat setiap harinya." },
     { icon: "✨", title: "Impian Terwujud", text: "Semoga semua harapan dan mimpimu satu per satu menjadi kenyataan." },
     { icon: "🌟", title: "Sehat Always", text: "Semoga kamu selalu diberikan kesehatan dan perlindungan." }
+  ],
+
+  // Daftar Hadiah Spesial Ulang Tahun (Random Gift Pool)
+  gifts: [
+    {
+      id: 1,
+      name: "Jaket Uniqlo",
+      icon: "🧥",
+      badge: "Best Fashion",
+      desc: "Biar kamu selalu hangat & nyaman pas jalan-jalan malam bareng aku! 💕"
+    },
+    {
+      id: 2,
+      name: "Sepatu",
+      icon: "👟",
+      badge: "Comfy Step",
+      desc: "Sepatu kece impianmu buat melangkah penuh percaya diri ke masa depan bersamaku! ✨"
+    },
+    {
+      id: 3,
+      name: "Tas",
+      icon: "👜",
+      badge: "Cute & Stylish",
+      desc: "Tas cantik buat nemenin aktivitas harianmu biar makin anggun dan memesona! 💖"
+    },
+    {
+      id: 4,
+      name: "Jajan Seblak Gratis",
+      icon: "🍲",
+      badge: "Culinary Favorite",
+      desc: "Bebas pesen seblak favoritmu level berapa aja plus topping komplit, aku yang bayar! 🌶️"
+    },
+    {
+      id: 5,
+      name: "Kalung",
+      icon: "📿",
+      badge: "Special Memory",
+      desc: "Perhiasan manis biar kamu makin bersinar & selalu ingat betapa aku mencintaimu! 🌟"
+    },
+    {
+      id: 6,
+      name: "Acc Kpop",
+      icon: "🫰",
+      badge: "K-Pop Dreams",
+      desc: "Aksesoris K-Pop impianmu buat nambah koleksi barang kesayanganmu! 🎶"
+    }
   ]
 };
