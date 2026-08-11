@@ -396,6 +396,7 @@ function initGiftSurprise() {
   const giftModalOverlay = document.getElementById('giftModalOverlay');
   const closeGiftModal = document.getElementById('closeGiftModal');
   const reDrawBtn = document.getElementById('reDrawBtn');
+  const claimLineBtn = document.getElementById('claimLineBtn');
   const claimWaBtn = document.getElementById('claimWaBtn');
   const modalGiftIcon = document.getElementById('modalGiftIcon');
   const modalGiftName = document.getElementById('modalGiftName');
@@ -464,9 +465,18 @@ function initGiftSurprise() {
     modalGiftName.innerText = gift.name;
     modalGiftDesc.innerText = gift.desc;
 
-    // Prepare WhatsApp claim link
-    const waText = encodeURIComponent(`Halo Sayang! ❤️ Aku dapet hadiah ulang tahun *${gift.name}* (${gift.icon}) dari website spesialmu! Makasih banyak yaa sayang! 💖✨`);
-    claimWaBtn.href = `https://api.whatsapp.com/send?text=${waText}`;
+    // Prepare share text message
+    const shareMsg = `Halo Sayang! ❤️ Aku dapet hadiah ulang tahun *${gift.name}* (${gift.icon}) dari website spesialmu! Makasih banyak yaa sayang! 💖✨`;
+    
+    // Set LINE share URL
+    if (claimLineBtn) {
+      claimLineBtn.href = `https://line.me/R/msg/text/?${encodeURIComponent(shareMsg)}`;
+    }
+
+    // Set WhatsApp share URL
+    if (claimWaBtn) {
+      claimWaBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMsg)}`;
+    }
 
     giftModalOverlay.classList.add('active');
 

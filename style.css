@@ -853,8 +853,8 @@ body {
   gap: 0.8rem;
 }
 
-.claim-wa-btn {
-  background: #25d366;
+.claim-line-btn {
+  background: linear-gradient(135deg, #06c755 0%, #00b900 100%);
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
@@ -864,14 +864,34 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 20px rgba(6, 199, 85, 0.4);
+  transition: all 0.3s ease;
+}
+
+.claim-line-btn:hover {
+  background: linear-gradient(135deg, #05b34c 0%, #00a000 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(6, 199, 85, 0.6);
+}
+
+.claim-wa-btn {
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  color: #25d366;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
 }
 
 .claim-wa-btn:hover {
-  background: #1ebc57;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
+  background: rgba(37, 211, 102, 0.25);
+  color: #ffffff;
 }
 
 .redraw-btn {
