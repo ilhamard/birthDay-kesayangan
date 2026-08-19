@@ -21,11 +21,12 @@ const CONFIG = {
 
   // Pesan Romantis Utama (Bisa diedit sesuka hati Anda!)
   romanticMessage: [
-    "Selamat ulang tahun untuk orang paling spesial dalam hidupku! 🎂✨",
-    "Terima kasih sudah hadir dan melengkapi hari-hariku dengan senyuman dan kehangatanmu.",
-    "Setiap detik bersamamu adalah kebahagiaan terbesar untukku. Semoga di usiamu yang baru ini, kamu selalu diberikan kesehatan, kebahagiaan yang berlimpah, dan semua impianmu tercapai.",
-    "Aku akan selalu ada di sampingmu untuk mendukungmu, mencintaimu, dan melewati setiap momen indah bersamamu.",
-    "I love you so much, Sayangku Cantikku! ❤️"
+    "Haii wanita yang selalu kusebut dalam doa, wanita tangguh yang aku sayang. Selamat hari ulang tahun yaa! 🎂❤️",
+    "Semoga hari ini dan seterusnya menjadi hari-hari yang sangat bahagia dan selalu bikin kamu happy. Tapi tak apa jika nanti ada hari yang menyebalkan, tetap sabar dan berdoa bahwa semua itu akan berlalu.",
+    "Aku di sini selalu di sampingmu dan akan selalu mendengarkan cerita-ceritamu, entah itu keluh kesahmu, rasa capekmu, ataupun rasa kesalmu. Menurutku, itu adalah suatu kebahagiaanku, bisa mendengarkan semua ceritamu.",
+    "Jikalau kamu bersedih, aku siap untuk meminjamkan pundakku untuk menampung air matamu dan mendengarkan suara tangisanmu. Hai wanita yang akan menjadi calon istriku, maaf aku tidak bisa datang di hari spesialmu. Aku hanya bisa mendoakanmu dari jauh.",
+    "Tentang keselamatanmu, kesehatanmu, kebahagiaanmu, dan semua tentangmu. Akan kupastikan dan aku berjanji pada diriku sendiri dan kepada Allah, aku tidak akan meninggalkanmu, entah itu ada masa lalumu yang kelam dan membuatmu trauma.",
+    "Sekali lagi, selamat ulang tahun sayangkuu, cintakuu. I will always love you. ❤️❤️"
   ],
 
   // Kutipan Cinta Spesial
@@ -38,12 +39,12 @@ const CONFIG = {
   // Galeri Foto Kenangan (Polaroid)
   photos: [
     {
-      url: "assets/images/photo1.jpg",
+      url: "assets/images/foto1.png",
       caption: "Senyuman Manismu 🌅",
       desc: "Momen indah saat kita Kencan pertama kali di Jogja."
     },
     {
-      url: "assets/images/photo2.jpg",
+      url: "assets/images/foto2.png",
       caption: "Di Bawah Bintang ✨",
       desc: "Menatap masa depan berdua di bawah indahnya langit malam."
     },

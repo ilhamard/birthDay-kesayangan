@@ -40,7 +40,7 @@ function initFromConfig() {
 
   // Update target name tags
   document.querySelectorAll('.target-name').forEach(el => {
-    el.innerText = CONFIG.name || "Sayangku Cantikku";
+    el.innerText = CONFIG.name || "Wanita Kesayangaku Ana";
   });
 
   // Render Polaroid Gallery
